@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Local - Registro (sin Firebase Hosting)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="container">
+  <header class="header row">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Horoscopo Firebase (Test Local)</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="row">
+    <h4>Sign up - Prueba Local</h4>
+    <div class="formatDiv">
+      <label for="txtNombre">Nombre:</label><br>
+      <input type="text" id="txtNombre" required><br><br>
+
+      <label for="txtEmail">Correo electrónico:</label><br>
+      <input type="text" id="txtEmail" required><br><br>
+
+      <label for="txtContra">Contraseña:</label><br>
+      <input type="password" id="txtContra" required><br><br>
+
+      <!-- Fecha de creación de la cuenta -->
+      <label for="txtFecCreacion">Fecha de creación de cuenta:</label><br>
+      <input type="text" id="txtFecCreacion" required readonly><br><br>
+
+      <!-- Fecha de último acceso -->
+      <label for="txtUltAcceso">Fecha de último acceso al sitio:</label><br>
+      <input type="text" id="txtUltAcceso" required readonly><br><br>
+
+      <input type="button" id="btnInsUser" name="btnInsUser" value="Insertar Usuario">
+    </div>
+    <div class="alert alert-info mt-3">
+      <strong>Nota:</strong> Esta es una versión de prueba local (sin Firebase). Las fechas se llenan automáticamente con JavaScript puro.
+    </div>
+  </main>
+
+  <footer class="row">Test Local - ITI-621</footer>
+
+  <script>
+    function formatearFecha(dt){
+      return dt.toLocaleString('es-CO', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+    }
+
+    function asignarFechas(){
+      const dt = new Date();
+      document.getElementById('txtFecCreacion').value = formatearFecha(dt);
+      document.getElementById('txtUltAcceso').value = formatearFecha(dt);
+      return dt;
+    }
+
+    window.addEventListener('DOMContentLoaded', function(){
+      asignarFechas();
+    });
+
+    document.getElementById('btnInsUser').addEventListener('click', function(){
+      asignarFechas();
+      const nombre = document.getElementById('txtNombre').value;
+      const email = document.getElementById('txtEmail').value;
+      const fecCreacion = document.getElementById('txtFecCreacion').value;
+      const ultAcceso = document.getElementById('txtUltAcceso').value;
+      alert('Usuario: ' + nombre + '\nEmail: ' + email + '\nFecha creación: ' + fecCreacion + '\nÚltimo acceso: ' + ultAcceso + '\n\n(Prueba local - no se guarda en Firebase)');
+    });
+  </script>
+</body>
+</html>
