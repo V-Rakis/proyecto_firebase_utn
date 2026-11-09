@@ -168,3 +168,56 @@ footer{
   text-align: center;
   border-top: 1px solid #eee;
 }
+
+/* ============================================================
+   FONDO DE PORTADA EN TODAS LAS PÁGINAS
+   ============================================================ */
+body{
+  background-image: url('zodiaco/00_Portada.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay oscuro suave para que la imagen no tape tanto el texto */
+body::before{
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: -1;
+}
+
+/* Contenedores con parche blanco semi-transparente para legibilidad del texto */
+.container,
+.formatDiv,
+main,
+header,
+footer{
+  background: rgba(255,255,255,0.88) !important;
+  border-radius: 8px;
+}
+
+/* Navbar sobre el fondo: un poco más oscuro para resaltar */
+.navbar{
+  background: rgba(0,0,0,0.55) !important;
+}
+
+/* Tarjetas de signos: fondo blanco sólido para que resalten sobre la portada */
+.divAnuncio{
+  background: rgba(255,255,255,0.95) !important;
+}
+
+/* Asegurar que los textos dentro de contenedores sean oscuros para legibilidad */
+.container *,
+.formatDiv *,
+.divAnuncio *{
+  color: #222 !important;
+}
+
+.container a,
+.formatDiv a,
+.divAnuncio a{
+  color: #0d6efd !important;
+}
