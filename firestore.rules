@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Coleccion de usuarios: incluye fecha de creacion y fecha de ultimo acceso
+    match /{datosUsuarios}/{document=**}{
+      allow read:if true;
+      allow create: if request.resource.data.idemp is string
+        && request.resource.data.usuario is string
+        && request.resource.data.email is string
+        && request.resource.data.fecCreacion is timestamp
+        && request.resource.data.ultAcceso is timestamp;
+      allow update: if true;
+      allow delete: if false;
+    }
+
+    // Coleccion de signos zodiacales: incluye elemento, astro y piedra
+    match /{datosZodiaco}/{document=**}{
+      allow read:if true;
+      allow create: if request.resource.data.posic is int
+        && request.resource.data.signo is string
+        && request.resource.data.rango is string
+        && request.resource.data.url is string
+        && request.resource.data.elemento is string
+        && request.resource.data.astro is string
+        && request.resource.data.piedra is string;
+      // update habilitado para permitir la edicion de un signo desde editar.html
+      allow update: if true;
+      allow delete: if false;
+    }
+  }
+}

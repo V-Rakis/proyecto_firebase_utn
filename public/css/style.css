@@ -1,0 +1,148 @@
+/* CSS Document */
+:root{
+  --primary: #110C0CFF;
+  --light: #FFFFFF;
+  --grey1: #EEEEEE;
+  --grey2: #F0F1F1;
+  --orange: #D6731D;
+  --lblue1: #559EE0;
+  --lblue2: #B4C5E5;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.header .navbar {
+  background-color: rgba(255,255,255,0.5) !important;
+}
+
+body{
+  padding-top: 70px;
+}
+
+.formatDiv{
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.formatHead{
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.imgBlock{
+  height: 150px;
+  width: 150px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.divAnuncio{
+  background-color: var(--light);
+  border: thin solid var(--lblue1);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px var(--lblue2);
+  float: left;
+  margin: 8px;
+  padding-top: 5px;
+  text-align: center;
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.divAnuncio:hover{
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 10px var(--lblue2);
+  border-color: var(--orange);
+}
+
+.divAnuncio .signo-titulo{
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 4px;
+  color: var(--primary);
+}
+
+.divAnuncio .dato-extra{
+  font-size: 0.82em;
+  color: #444;
+  margin: 2px 0;
+}
+
+.divAnuncio .accion{
+  font-size: 0.75em;
+  color: #666;
+  margin-top: 6px;
+}
+
+label{
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select{
+  width: 100%;
+  max-width: 320px;
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="button"]{
+  margin-top: 12px;
+  padding: 8px 20px;
+  background: var(--primary);
+  color: var(--light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+input[type="button"]:hover{
+  background: var(--orange);
+}
+
+.btn-secundo{
+  background: #666;
+}
+
+.btn-secundo:hover{
+  background: #444;
+}
+
+.imgPreview{
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 160px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.oculto{
+  display: none;
+}
+
+footer{
+  margin-top: 30px;
+  padding: 10px 0;
+  color: #666;
+  font-size: 0.85em;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
