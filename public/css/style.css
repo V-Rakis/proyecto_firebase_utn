@@ -124,6 +124,28 @@ input[type="button"]:hover{
   background: #444;
 }
 
+.btn-register{
+  display: inline-block;
+  margin-left: 10px;
+  padding: 8px 16px;
+  background: var(--lblue1);
+  color: var(--light);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9em;
+  border: 1px solid var(--lblue1);
+}
+
+.btn-register:hover{
+  background: var(--lblue2);
+  text-decoration: none;
+}
+
+.btn-secundo:hover{
+  background: #444;
+}
+
 .imgPreview{
   margin-top: 10px;
   border: 1px solid #ccc;

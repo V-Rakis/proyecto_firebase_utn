@@ -63,18 +63,59 @@
   <main class="row">
     <h4 class="formatHead">Almacenar Imagenes con datos</h4>
     <div>
-      <label for="txtPosic">Posicion:</label><br>
-      <input type="text" id="txtPosic"><br><br>
+      <label for="txtPosic">Posición:</label><br>
+      <select id="txtPosic" required>
+        <option value="">-- Seleccione --</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select><br><br>
 
       <label for="txtSigno">Signo:</label><br>
-      <input type="text" id="txtSigno"><br><br>
+      <select id="txtSigno" required>
+        <option value="">-- Seleccione --</option>
+        <option value="Acuario">Acuario</option>
+        <option value="Piscis">Piscis</option>
+        <option value="Aries">Aries</option>
+        <option value="Tauro">Tauro</option>
+        <option value="Géminis">Géminis</option>
+        <option value="Cáncer">Cáncer</option>
+        <option value="Leo">Leo</option>
+        <option value="Virgo">Virgo</option>
+        <option value="Libra">Libra</option>
+        <option value="Escorpio">Escorpio</option>
+        <option value="Sagitario">Sagitario</option>
+        <option value="Capricornio">Capricornio</option>
+      </select><br><br>
 
-      <label for="txtRango">Rango:</label><br>
-      <input type="text" id="txtRango"><br><br>
+      <label for="txtRango">Rango (fechas):</label><br>
+      <select id="txtRango" required>
+        <option value="">-- Seleccione --</option>
+        <option value="Ene/20 - Feb/18">Ene/20 - Feb/18</option>
+        <option value="Feb/19 - Mar/20">Feb/19 - Mar/20</option>
+        <option value="Mar/21 - Abr/19">Mar/21 - Abr/19</option>
+        <option value="Abr/20 - May/20">Abr/20 - May/20</option>
+        <option value="May/21 - Jun/20">May/21 - Jun/20</option>
+        <option value="Jun/21 - Jul/22">Jun/21 - Jul/22</option>
+        <option value="Jul/23 - Ago/22">Jul/23 - Ago/22</option>
+        <option value="Ago/23 - Sep/22">Ago/23 - Sep/22</option>
+        <option value="Sep/23 - Oct/22">Sep/23 - Oct/22</option>
+        <option value="Oct/23 - Nov/21">Oct/23 - Nov/21</option>
+        <option value="Nov/22 - Dic/21">Nov/22 - Dic/21</option>
+        <option value="Dic/22 - Ene/19">Dic/22 - Ene/19</option>
+      </select><br><br>
 
       <label for="txtElemento">Elemento:</label><br>
       <select id="txtElemento" required>
-        <option value="">-- Seleccione --</option>
         <option value="Fuego">Fuego</option>
         <option value="Tierra">Tierra</option>
         <option value="Aire">Aire</option>
@@ -82,15 +123,49 @@
       </select><br><br>
 
       <label for="txtAstro">Astro celeste asociado:</label><br>
-      <input type="text" id="txtAstro" required><br><br>
+      <select id="txtAstro" required onchange="toggleOtro('txtAstro', 'divOtroAstro')">
+        <option value="">-- Seleccione --</option>
+        <option value="Sol">Sol</option>
+        <option value="Luna">Luna</option>
+        <option value="Mercurio">Mercurio</option>
+        <option value="Venus">Venus</option>
+        <option value="Marte">Marte</option>
+        <option value="Júpiter">Júpiter</option>
+        <option value="Saturno">Saturno</option>
+        <option value="Urano">Urano</option>
+        <option value="Neptuno">Neptuno</option>
+        <option value="Plutón">Plutón</option>
+        <option value="Otro">Otro...</option>
+      </select>
+      <div id="divOtroAstro" class="oculto">
+        <label for="txtAstroOtro">Especifique el astro:</label><br>
+        <input type="text" id="txtAstroOtro"><br><br>
+      </div>
 
       <label for="txtPiedra">Piedra preciosa:</label><br>
-      <input type="text" id="txtPiedra" required><br><br>
+      <select id="txtPiedra" required onchange="toggleOtro('txtPiedra', 'divOtroPiedra')">
+        <option value="">-- Seleccione --</option>
+        <option value="Amatista">Amatista</option>
+        <option value="Aguamarina">Aguamarina</option>
+        <option value="Diamante">Diamante</option>
+        <option value="Esmeralda">Esmeralda</option>
+        <option value="Topacio">Topacio</option>
+        <option value="Rubí">Rubí</option>
+        <option value="Zafiro">Zafiro</option>
+        <option value="Ópalo">Ópalo</option>
+        <option value="Granate">Granate</option>
+        <option value="Perla">Perla</option>
+        <option value="Otro">Otro...</option>
+      </select>
+      <div id="divOtroPiedra" class="oculto">
+        <label for="txtPiedraOtro">Especifique la piedra:</label><br>
+        <input type="text" id="txtPiedraOtro"><br><br>
+      </div>
 
-      <label for="txtArchi">File:</label><br>
-      <input type="file" id="txtArchi">
+      <label for="txtArchi">Imagen:</label><br>
+      <input type="file" id="txtArchi" accept="image/*">
       <br><br>
-      <input type="button" id="btnLoad" name="btnLoad" value="Insert">
+      <input type="button" id="btnLoad" name="btnLoad" value="Insertar Signo">
     </div>
   </main>
 
@@ -107,6 +182,21 @@
       validar();
       console.log('La pagina esta completamente cargada');
     });
+  </script>
+  <script>
+    function toggleOtro(selectId, divId) {
+      const select = document.getElementById(selectId);
+      const div = document.getElementById(divId);
+      const input = div.querySelector('input');
+      if (select.value === 'Otro') {
+        div.classList.remove('oculto');
+        input.required = true;
+      } else {
+        div.classList.add('oculto');
+        input.required = false;
+        input.value = '';
+      }
+    }
   </script>
   <!-- load js code to storage data  -->
   <script defer src="js/zodiac/addsigno.js"></script>
