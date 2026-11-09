@@ -14,10 +14,21 @@ const txtUltAcceso = document.querySelector('#txtUltAcceso');
 const btnInsUser = document.querySelector('#btnInsUser');
 
 // asignar fecha de creacion y fecha de ultimo acceso al momento del registro
+function formatearFecha(dt){
+  return dt.toLocaleString('es-CO', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+}
+
 function asignarFechas(){
   const dt = new Date();
-  txtFecCreacion.value = dt.toISOString();
-  txtUltAcceso.value = dt.toISOString();
+  txtFecCreacion.value = formatearFecha(dt);
+  txtUltAcceso.value = formatearFecha(dt);
   return dt;
 }
 
