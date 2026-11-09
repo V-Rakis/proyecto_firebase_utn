@@ -1,0 +1,110 @@
+[
+  {
+    "posic": 1,
+    "signo": "Aries",
+    "rango": "Mar/21 - Abr/19",
+    "elemento": "Fuego",
+    "astro": "Marte",
+    "piedra": "Diamante",
+    "url": "https://pixabay.com/illustrations/aries-astrology-zodiac-horoscope-9514959/"
+  },
+  {
+    "posic": 2,
+    "signo": "Tauro",
+    "rango": "Abr/20 - May/20",
+    "elemento": "Tierra",
+    "astro": "Venus",
+    "piedra": "Esmeralda",
+    "url": "https://pixabay.com/illustrations/zodiac-astrology-horoscope-taurus-8032643/"
+  },
+  {
+    "posic": 3,
+    "signo": "Géminis",
+    "rango": "May/21 - Jun/20",
+    "elemento": "Aire",
+    "astro": "Mercurio",
+    "piedra": "Ágata",
+    "url": "https://pixabay.com/illustrations/star-sign-twins-horoscope-design-4374407/"
+  },
+  {
+    "posic": 4,
+    "signo": "Cáncer",
+    "rango": "Jun/21 - Jul/22",
+    "elemento": "Agua",
+    "astro": "Luna",
+    "piedra": "Perla",
+    "url": "https://pixabay.com/illustrations/star-sign-cancer-horoscope-design-4374406/"
+  },
+  {
+    "posic": 5,
+    "signo": "Leo",
+    "rango": "Jul/23 - Ago/22",
+    "elemento": "Fuego",
+    "astro": "Sol",
+    "piedra": "Rubí",
+    "url": "https://pixabay.com/illustrations/leo-horoscope-zodiac-sign-zodiac-3915974/"
+  },
+  {
+    "posic": 6,
+    "signo": "Virgo",
+    "rango": "Ago/23 - Sep/22",
+    "elemento": "Tierra",
+    "astro": "Mercurio",
+    "piedra": "Zafiro",
+    "url": "https://pixabay.com/illustrations/virgo-star-sign-astrology-horoscope-7617694/"
+  },
+  {
+    "posic": 7,
+    "signo": "Libra",
+    "rango": "Sep/23 - Oct/22",
+    "elemento": "Aire",
+    "astro": "Venus",
+    "piedra": "Ópalo",
+    "url": "https://pixabay.com/illustrations/ai-generated-libra-zodiac-scales-9242295/"
+  },
+  {
+    "posic": 8,
+    "signo": "Escorpio",
+    "rango": "Oct/23 - Nov/21",
+    "elemento": "Agua",
+    "astro": "Plutón",
+    "piedra": "Topacio",
+    "url": "https://pixabay.com/illustrations/star-sign-scorpio-horoscope-design-4374412/"
+  },
+  {
+    "posic": 9,
+    "signo": "Sagitario",
+    "rango": "Nov/22 - Dic/21",
+    "elemento": "Fuego",
+    "astro": "Júpiter",
+    "piedra": "Turquesa",
+    "url": "https://pixabay.com/illustrations/sagittarius-astrology-sign-symbol-2551400/"
+  },
+  {
+    "posic": 10,
+    "signo": "Capricornio",
+    "rango": "Dic/22 - Ene/19",
+    "elemento": "Tierra",
+    "astro": "Saturno",
+    "piedra": "Granate",
+    "url": "https://pixabay.com/es/illustrations/signo-del-zodiaco-capricornio-6247267/"
+  },
+  {
+    "posic": 11,
+    "signo": "Acuario",
+    "rango": "Ene/20 - Feb/18",
+    "elemento": "Aire",
+    "astro": "Urano",
+    "piedra": "Amatista",
+    "url": "https://pixabay.com/es/illustrations/signo-del-zodiaco-acuario-6247265/"
+  },
+  {
+    "posic": 12,
+    "signo": "Piscis",
+    "rango": "Feb/19 - Mar/20",
+    "elemento": "Agua",
+    "astro": "Neptuno",
+    "piedra": "Aguamarina",
+    "url": "https://pixabay.com/illustrations/pisces-zodiac-sign-symbol-fish-6751363/"
+  }
+]

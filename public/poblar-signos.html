@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poblar Signos Zodiacales - Firestore</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="/__/firebase/13.2.0/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/13.2.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/13.2.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+</head>
+<body class="container">
+  <header class="header row">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Horoscopo Firebase</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+            <li class="nav-item"><a class="nav-link" href="registrar.html">Registrar usuario</a></li>
+            <li class="nav-item"><a class="nav-link active" href="lista.html">Lista de Signos</a></li>
+            <li class="nav-item"><a class="nav-link" href="agregar.html">Agregar Signo</a></li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link text-white" href="#" onclick="salir()">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="row mt-5">
+    <div class="col-md-8 mx-auto formatDiv p-4">
+      <h4 class="formatHead mb-4">Poblar Base de Datos - Signos Zodiacales</h4>
+      <p>Insertará los 12 signos zodiacales en la colección <code>datosZodiaco</code> de Firestore.</p>
+      <div class="alert alert-info">
+        <strong>Requisito:</strong> Debes estar autenticado para ejecutar esta acción.
+      </div>
+      <div class="d-grid gap-2">
+        <button id="btnPoblar" class="btn btn-primary btn-lg">Insertar 12 Signos en Firestore</button>
+        <a href="lista.html" class="btn btn-outline-secondary">Ir a Lista de Signos</a>
+      </div>
+      <div id="resultado" class="mt-4"></div>
+    </div>
+  </main>
+
+  <footer class="row mt-5"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script>
+    const signos = [
+      { posic: 1, signo: "Aries", rango: "Mar/21 - Abr/19", elemento: "Fuego", astro: "Marte", piedra: "Diamante", url: "https://pixabay.com/illustrations/aries-astrology-zodiac-horoscope-9514959/" },
+      { posic: 2, signo: "Tauro", rango: "Abr/20 - May/20", elemento: "Tierra", astro: "Venus", piedra: "Esmeralda", url: "https://pixabay.com/illustrations/zodiac-astrology-horoscope-taurus-8032643/" },
+      { posic: 3, signo: "Géminis", rango: "May/21 - Jun/20", elemento: "Aire", astro: "Mercurio", piedra: "Ágata", url: "https://pixabay.com/illustrations/star-sign-twins-horoscope-design-4374407/" },
+      { posic: 4, signo: "Cáncer", rango: "Jun/21 - Jul/22", elemento: "Agua", astro: "Luna", piedra: "Perla", url: "https://pixabay.com/illustrations/star-sign-cancer-horoscope-design-4374406/" },
+      { posic: 5, signo: "Leo", rango: "Jul/23 - Ago/22", elemento: "Fuego", astro: "Sol", piedra: "Rubí", url: "https://pixabay.com/illustrations/leo-horoscope-zodiac-sign-zodiac-3915974/" },
+      { posic: 6, signo: "Virgo", rango: "Ago/23 - Sep/22", elemento: "Tierra", astro: "Mercurio", piedra: "Zafiro", url: "https://pixabay.com/illustrations/virgo-star-sign-astrology-horoscope-7617694/" },
+      { posic: 7, signo: "Libra", rango: "Sep/23 - Oct/22", elemento: "Aire", astro: "Venus", piedra: "Ópalo", url: "https://pixabay.com/illustrations/ai-generated-libra-zodiac-scales-9242295/" },
+      { posic: 8, signo: "Escorpio", rango: "Oct/23 - Nov/21", elemento: "Agua", astro: "Plutón", piedra: "Topacio", url: "https://pixabay.com/illustrations/star-sign-scorpio-horoscope-design-4374412/" },
+      { posic: 9, signo: "Sagitario", rango: "Nov/22 - Dic/21", elemento: "Fuego", astro: "Júpiter", piedra: "Turquesa", url: "https://pixabay.com/illustrations/sagittarius-astrology-sign-symbol-2551400/" },
+      { posic: 10, signo: "Capricornio", rango: "Dic/22 - Ene/19", elemento: "Tierra", astro: "Saturno", piedra: "Granate", url: "https://pixabay.com/es/illustrations/signo-del-zodiaco-capricornio-6247267/" },
+      { posic: 11, signo: "Acuario", rango: "Ene/20 - Feb/18", elemento: "Aire", astro: "Urano", piedra: "Amatista", url: "https://pixabay.com/es/illustrations/signo-del-zodiaco-acuario-6247265/" },
+      { posic: 12, signo: "Piscis", rango: "Feb/19 - Mar/20", elemento: "Agua", astro: "Neptuno", piedra: "Aguamarina", url: "https://pixabay.com/illustrations/pisces-zodiac-sign-symbol-fish-6751363/" }
+    ];
+    const btnPoblar = document.getElementById('btnPoblar');
+    const resultado = document.getElementById('resultado');
+
+    btnPoblar.addEventListener('click', async () => {
+      const db = firebase.apps[0].firestore();
+      const auth = firebase.apps[0].auth();
+      const user = auth.currentUser;
+
+      if (!user) {
+        resultado.innerHTML = '<div class="alert alert-danger">Debes iniciar sesión primero. Ve a <a href="login.html">Iniciar sesión</a></div>';
+        return;
+      }
+
+      btnPoblar.disabled = true;
+      btnPoblar.textContent = 'Insertando...';
+      resultado.innerHTML = '';
+
+      let exitosos = 0;
+      let errores = 0;
+
+      for (const s of signos) {
+        try {
+          await db.collection("datosZodiaco").add({
+            posic: s.posic,
+            signo: s.signo,
+            rango: s.rango,
+            elemento: s.elemento,
+            astro: s.astro,
+            piedra: s.piedra,
+            url: s.url
+          });
+          exitosos++;
+          resultado.innerHTML += '<div class="alert alert-success small">✓ ' + s.signo + ' insertado</div>';
+        } catch (e) {
+          errores++;
+          resultado.innerHTML += '<div class="alert alert-danger small">✗ ' + s.signo + ': ' + e.message + '</div>';
+        }
+      }
+
+      btnPoblar.disabled = false;
+      btnPoblar.textContent = 'Insertar 12 Signos en Firestore';
+
+      resultado.innerHTML += '<div class="alert ' + (errores === 0 ? 'alert-success' : 'alert-warning') + ' mt-3"><strong>Resumen:</strong> ' + exitosos + ' insertados correctamente, ' + errores + ' errores.</div>';
+    });
+  </script>
+</body>
+</html>
