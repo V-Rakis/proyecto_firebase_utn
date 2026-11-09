@@ -13,6 +13,14 @@
   <script defer src="/__/firebase/13.2.0/firebase-auth-compat.js"></script>
   <script defer src="/__/firebase/13.2.0/firebase-firestore-compat.js"></script>
   <script defer src="/__/firebase/init.js"></script>
+  <!-- calling user authentication functions -->
+  <script defer src="js/users/islogin.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      validar();
+      console.log('La página está completamente cargada');
+    });
+  </script>
 </head>
 <body class="container">
   <header class="header row">
