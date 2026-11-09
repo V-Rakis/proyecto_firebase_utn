@@ -173,7 +173,7 @@ footer{
    FONDO DE PORTADA EN TODAS LAS PÁGINAS
    ============================================================ */
 body{
-  background-image: url('zodiaco/00_Portada.png');
+  background-image: url('https://media.discordapp.net/attachments/1005884073157345300/1569424973448216596/image.png?ex=6af36868&is=6af216e8&hm=2bff7ab43a287e70d3466e98c1e3f07ec9ae0e92efd1781c9aef03c2d208da06&=&format=webp&quality=lossless');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
